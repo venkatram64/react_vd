@@ -6,7 +6,7 @@ ReactDOM.render(<App />, document.getElementById("react-app"));
 
 
 //virtual dom example
-const jsContainer = document.getElementById("js");
+/*const jsContainer = document.getElementById("js");
 const reactContainer = document.getElementById("react");
 const render = () =>{
 	jsContainer.innerHTML= `
@@ -33,4 +33,4 @@ const render = () =>{
 	);
 }
 
-setInterval(render, 1000);
+setInterval(render, 1000);*/

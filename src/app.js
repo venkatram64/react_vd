@@ -1,5 +1,6 @@
 import React from "react";
 import QuoteList from "./quoteList";
+import Timer from "./timer";
 
 
 
@@ -16,6 +17,7 @@ export default class App extends React.Component {
 	render(){
 		return  <div>
 					<QuoteList quotes={quoteData}/>
+					<Timer startsWith={200}/>
 				</div>;
 	}
 
