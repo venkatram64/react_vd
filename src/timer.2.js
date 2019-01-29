@@ -17,7 +17,10 @@ export default class Timer extends Component {
     }
 
     startTimer() {
+        //debugger;
+        //working with dom elements
         this.setState({currentValue:Number(this.refs.startInput.value)})
+        this.refs.startInput.focus();
         setInterval(() =>{
             this.setState(
                 {currentValue: this.state.currentValue - 1}

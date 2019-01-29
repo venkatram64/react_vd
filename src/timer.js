@@ -12,12 +12,15 @@ export default class Timer extends Component {
 
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {startValue:''};
         this.startTimer = this.startTimer.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     startTimer() {
-        this.setState({currentValue:Number(this.refs.startInput.value)})
+        //debugger;
+        //controlled Components
+        this.setState({currentValue:Number(this.state.startValue)})
         setInterval(() =>{
             this.setState(
                 {currentValue: this.state.currentValue - 1}
@@ -29,21 +32,22 @@ export default class Timer extends Component {
         this.setState({currentValue : 150});
     };
 
+    handleInputChange(event){
+        this.setState({startValue: event.target.value});
+    }
+
     render(){
         return (
             <div className="Timer">
                 <TimerItem currentValue={this.state.currentValue}
                         resetTimerFunction={this.resetTimer}
                 />
-                <input type="text" ref="startInput"/>
+                <input type="text" value={this.state.startValue} onChange={this.handleInputChange}/>
                 <button onClick={this.startTimer}>Start</button>
                 
             </div>
         );
     }
-
-    
-
     
 }
 
