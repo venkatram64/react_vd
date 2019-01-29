@@ -12,17 +12,14 @@ export default class Timer extends Component {
 
     constructor(props){
         super(props);
-        this.state = {};
-        this.startTimer = this.startTimer.bind(this);
-    }
+        this.state = {currentValue: 150};
 
-    startTimer() {
-        this.setState({currentValue:Number(this.refs.startInput.value)})
         setInterval(() =>{
             this.setState(
                 {currentValue: this.state.currentValue - 1}
             )
         }, 1000);
+        this.resetTimer = this.resetTimer.bind(this);
     }
 
     resetTimer(){
@@ -35,8 +32,6 @@ export default class Timer extends Component {
                 <TimerItem currentValue={this.state.currentValue}
                         resetTimerFunction={this.resetTimer}
                 />
-                <input type="text" ref="startInput"/>
-                <button onClick={this.startTimer}>Start</button>
                 
             </div>
         );
